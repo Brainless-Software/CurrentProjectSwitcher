@@ -1,0 +1,37 @@
+<!-- Plugin Configuration File -->
+<idea-plugin>
+    <id>net.priimak.CurrentProjectSwitcher</id>
+
+
+    <name>Current Project Switcher</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor url="https://github.com/Brainless-Software">Brainless Software</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager. -->
+    <description><![CDATA[
+        Minimal plugin for switching between already opened projects.<br>
+        <ol>
+        <li>Open switcher dialog by pressing Alt-P Alt-P.</li>
+        <li>Type for fuzzy search in list of projects and press Enter to switch to a project when right project selected.</li>
+        <li>Use arrow keys to navigate list of project.</li>
+        <ol>
+        ]]></description>
+
+    <!-- Product and plugin compatibility requirements. -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <actions>
+        <action class="net.priimak.ShowCurrentProjectSwitcherDialog"
+                id="CurrenProjectSwitcher"
+                text="Curren Project Switcher Dialog"
+                keymap="$default">
+            <keyboard-shortcut
+                    keymap="$default"
+                    first-keystroke="alt P"
+                    second-keystroke="alt P"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+
+</idea-plugin>
