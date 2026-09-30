@@ -168,6 +168,11 @@ class CurrentProjectSwitcherDialog : DialogWrapper(false) {
         mainPanel.add(searchField, BorderLayout.NORTH)
 
         val scrollPane = JBScrollPane(table)
+
+        val minRows = 15
+        val totalMinHeight = table.getRowHeight() * minRows + table.getIntercellSpacing().height * (minRows + 1)
+        scrollPane.setPreferredSize(Dimension(scrollPane.getPreferredSize().width, totalMinHeight))
+
         mainPanel.add(scrollPane, BorderLayout.CENTER)
         searchField.requestFocus()
         searchField.grabFocus()
