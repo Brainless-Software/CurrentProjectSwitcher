@@ -70,7 +70,8 @@ class SearchField(val dialog: CurrentProjectSwitcherDialog, val table: ProjectsT
                     val columns = arrayOf("Project Name")
                     val data =
                         ProjectManager.getInstance().openProjects
-                            .filter { project -> project.name.lowercase().indexOf(txt) > -1 }
+                            .filter { it.name.lowercase().indexOf(txt) > -1 }
+                            .sortedBy { it.name.lowercase() }
                             .map { project -> arrayOf(project.name) }.toTypedArray()
                     model.setDataVector(data, columns)
                     table.setRowSelectionInterval(0, 0) // select first row
@@ -152,7 +153,8 @@ class ProjectsTable(dialog: CurrentProjectSwitcherDialog, model: TableModel) : J
 class CurrentProjectSwitcherDialog : DialogWrapper(false) {
     val mainPanel = JPanel(BorderLayout())
     val columns = arrayOf("Project Name")
-    val data = ProjectManager.getInstance().openProjects.map { project -> arrayOf(project.name) }.toTypedArray()
+    val data = ProjectManager.getInstance().openProjects.sortedBy { it.name.lowercase() }
+        .map { project -> arrayOf(project.name) }.toTypedArray()
     val model = DefaultTableModel(data, columns)
     val table = ProjectsTable(this, model)
     val searchField = SearchField(this, table, model)
