@@ -1,5 +1,6 @@
 # Current Project Switcher
 
+[plugin-version-svg]: https://img.shields.io/jetbrains/plugin/v/34684-current-project-switcher.svg
 [plugin-repo]: https://plugins.jetbrains.com/plugin/34684-current-project-switcher
 
 [![JetBrains plugins][plugin-version-svg]][plugin-repo]
